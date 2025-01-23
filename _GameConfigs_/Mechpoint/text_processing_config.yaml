@@ -1,0 +1,22 @@
+SymbolFlags:
+  Start: "{"
+  End: "}"
+
+ReminderTextFlags:
+  Start: '('
+  End: ')'
+  ItalicizeReminder: True
+  BoldReminder: False
+  ReminderColor: [123, 123, 121]
+
+FormatFlags:
+  ToggleItalics: '*'
+  ToggleBold: '~B'
+  Endline: "\n"
+  Paragraph: "\r"
+
+ReplaceWithCardname: "~"
+
+TextReplacements:
+  # Will be searched for and replaced in this order of precedence 
+  "--": "—"

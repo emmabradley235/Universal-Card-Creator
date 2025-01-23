@@ -1,0 +1,84 @@
+CardFields:
+  "Name":
+    FieldType: Text
+    AllowTextReplacements: False
+
+  "Deck Type":
+    FieldType: List
+    Values: ["Pilot", "Tech"]
+
+  "Class":
+    FieldType: List
+    Values: [
+      "Generic", 
+      "Swarm": {"Deck Type": ["Tech"]}, # Each key in the whitelist dictionary must have at least one match
+      "Fortress": {"Deck Type": ["Tech"]}, # Say a whitelist dict was: {"Card Type": ["Action", "Reaction"], "Name": ["Example"]}
+      "Gearwork": {"Deck Type": ["Tech"]}, # Then, a card would have to: 
+      "Faction 1": {"Deck Type": ["Pilot"]}, # (Have the card type "Action" OR "Reaction") AND (Have the name "Example")
+      "Faction 2": {"Deck Type": ["Pilot"]}, 
+      "Faction 3": {"Deck Type": ["Pilot"]}
+    ]
+
+  "Card Type":
+    FieldType: List
+    Values: [
+      "Main Mech": {"Deck Type": ["Tech"]}, 
+      "Mech": {"Deck Type": ["Tech"]}, 
+      "Attachment": {"Deck Type": ["Tech"]}, 
+      "Pilot": {"Deck Type": ["Pilot"]}, 
+      "Action": {"Deck Type": ["Pilot"]}, 
+      "Reaction": {"Deck Type": ["Pilot"]}
+    ]
+
+  "Subtype":
+    FieldType: List
+    Values: [
+      "Drone": {"Card Type": ["Mech"]}, 
+      "Building": {"Card Type": ["Mech"]}, 
+      "Weapon": {"Card Type": ["Attachment"]}, 
+      "Armor": {"Card Type": ["Attachment"]}, 
+      "Gadget": {"Card Type": ["Attachment"]}
+    ]
+    ShowIf: {"Card Type": ["Mech", "Attachment"]}
+  
+  "Cost":
+    FieldType: Text
+    HideIf: {"Card Type": ["Main Mech", "Pilot"]}
+  
+  "Rules Text":
+    FieldType: Text
+  
+  "Starting Defense":
+    FieldType: Number
+    ShowIf: {"Card Type": ["Attachment"]}
+
+  "Starting Health":
+    FieldType: Number
+    ShowIf: {"Card Type": ["Main Mech", "Mech"]}
+  
+  "Range": 
+    FieldType: Text
+    ShowIf: {"Subtype": ["Weapon"]}
+  
+  "Arcana":
+    FieldType: Text
+    ShowIf: {"Card Type": ["Main Mech"]}
+
+  "Energy per Turn":
+    FieldType: Text
+    ShowIf: {"Card Type": ["Main Mech", "Mech"]}
+
+  "Superweapon":
+    FieldType: Text
+    ShowIf: {"Card Type": ["Main Mech"]}
+  
+  "Starting Hand Size":
+    FieldType: Number
+    ShowIf: {"Card Type": ["Pilot"]}
+  
+  "Schematics Size":
+    FieldType: Number
+    ShowIf: {"Card Type": ["Pilot"]}
+
+  "Playtest Notes":
+    FieldType: Text

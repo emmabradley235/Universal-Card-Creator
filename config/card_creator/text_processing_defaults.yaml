@@ -1,0 +1,23 @@
+SymbolFlags:
+  Start: "{"
+  End: "}"
+
+ReminderTextFlags:
+  Start: '('
+  End: ')'
+  ItalicizeReminder: True
+  BoldReminder: False
+  ReminderColor: [113, 113, 111]
+
+FormatFlags:
+  ToggleItalics: '*'
+  ToggleBold: '~B'
+  Endline: "\n"
+  Paragraph: "\r"
+ReplaceWithCardname: "~"
+
+FontModFlags:
+  # To use, surround each of the following with symbol flags and the appropriate parameter value
+  SetFontName: "FONT_NAME:"  # Ex: "{FONT_NAME: Spectral}" would set current font to "Spectral"
+  SetFontColor: "FONT_COLOR:"
+  

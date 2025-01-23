@@ -1,0 +1,62 @@
+# Each card layout has the following fields:
+# - InheritFrom (str of another card layout's name, or None) - If inheriting from another layout, card creator will make that layout
+#     except adding any elements from this layout (or overwriting elements with the same name).
+# - UseIf (dict of conditions) - Each condition must be met to use this card layout. To be used, all conditions from a layout (and layouts it inherits from) must be met.
+# - Elements (dict of card elements)
+
+# Each card element has the folowing fields:
+# - Layer (int) - Elements with lower layer values are drawn first. 
+# - Type (string) - Determines how the card creator handles this element and what parameters it expects.
+# - Width (float) - Percentage of the card's X size that the element's width should be.
+# - Height (float) - Percentage of the card's Y size that the element's height should be.
+# - Location (2 floats in a list, [x, y]) - Percentages used to place the element's origin point. Note: +x is right, +y is down.
+# - OriginSide (2 strings in a list, [Left/Center/Right, Top/Center/Bottom]) - Where on the element the origin should be located.
+#     Default: [Center, Center]
+
+# Types of Card Elements (and their unique fields):
+# - Textbox:
+#   - FillFrom (str, name of a card field) - Which card field to use to fill the textbox.
+#   - Font (str, name of an imported font) - Default textbox font.
+#   - FontSize (int) - How big to make the font be for this textbox.
+#   - MaxWidth (float, str with val "Width", or None) - If float, percentage max. If "Width", doesn't allow width expansion. If None, will go up to card with.
+#   - MaxHeight (float, str with val "Width", or None) - If float, percentage max. If "Height", doesn't allow width expansion. If None, will go up to card height. 
+#   - BackgroundImgElement: (Dict of parameters, or None)
+#     - LocationOffset (2 floats in a list, [x, y]) - Offset from the textbox's origin.
+#     - WidthOffset (float) - How much wider (or narrower if negative) the background img is than the textbox.
+#     - HeightOffset (float) - How much taller (or shorter if negative) the background img is than the textbox.
+#     - ImageAsset (path to the relevant img within "frame_elements") - Image asset to use for the textbox background.
+# - Image:
+#   - ImageAsset (path to the relevant img within "frame_elements") - Image asset to use for this element (will be stretched to element dimensions).
+# - DynamicImg:
+#   - DefaultImageAsset (path to the relevant img within "frame_elements") - Image asset to use for this element if no element conditions are met.
+#   - ImageAssetOptions (dict with keys being image paths and values being conditions) - Picks the most restrictive condition met and uses the associated image.
+# - UserImage:
+#   - ImportButtonText (str) - The text used for the image import button in the UI.
+
+BaseCardLayout:
+  InheritFrom: None
+  UseIf: {}
+  Elements:
+    Frame:
+      Layer: 0
+      Type: Image
+      Width: 1
+      Height: 1
+      Location: [0, 0]
+      OriginSide: [Left, Top]
+      ImageAsset: "Base Playtest Frame.png"
+    TestImg:
+      Layer: 1
+      Type: Image
+      Width: 0.9
+      Height: 0.07
+      Location: [0.05, 0.055]
+      OriginSide: [Left, Top]
+      ImageAsset: "Purple TEST-.Img.png"
+    #NameBox:
+    #  Layer: 1
+    #  Type: Textbox
+    #  Width: 0.9
+    #  Height: 0.07
+    #  Location: [0.5, 0.055]
+    #  OriginSide: [Center, Top]

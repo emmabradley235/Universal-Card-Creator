@@ -1,0 +1,13 @@
+GameName: "Mechpoint"
+
+CardOutputResolution: [764, 1068]
+CardDisplayResolution: [382, 534]
+
+Paths:
+  CardFieldConfig: "\\card_fields.yaml"
+  TextProcessingConfig: "\\text_processing_config.yaml"
+  CardLayoutsDirectory: "\\card_layouts"
+  FontsDirectory: "\\assets\\fonts"
+  FrameElementsDirectory: "\\assets\\frame_elements"
+  SymbolsDirectory: "\\assets\\symbols"
+  
