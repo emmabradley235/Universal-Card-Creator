@@ -1,0 +1,11 @@
+# virtual enviroments
+/venv/
+/env/
+/.venv/
+/.env/
+
+# vscode ide files
+/.vscode/
+
+# idea ide files
+/.idea/
