@@ -20,6 +20,10 @@ class GamePaths:
             game_info['Paths']['TextProcessingConfig'],
             relative_base=self.game_folder
         )
+        self.font_configs = make_absolute_path(
+            game_info['Paths']['FontConfigs'],
+            relative_base=self.game_folder
+        )
         self.card_layouts_folder = make_absolute_path(
             game_info['Paths']['CardLayoutsDirectory'],
             relative_base=self.game_folder

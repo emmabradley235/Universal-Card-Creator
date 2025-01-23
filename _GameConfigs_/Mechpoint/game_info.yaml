@@ -6,6 +6,7 @@ CardDisplayResolution: [382, 534]
 Paths:
   CardFieldConfig: "\\card_fields.yaml"
   TextProcessingConfig: "\\text_processing_config.yaml"
+  FontConfigs: "\\assets\\fonts\\font_configs.yaml"
   CardLayoutsDirectory: "\\card_layouts"
   FontsDirectory: "\\assets\\fonts"
   FrameElementsDirectory: "\\assets\\frame_elements"
