@@ -1,10 +1,10 @@
-import yaml
 from pathlib import Path
-from PIL import Image, ImageTk
+
+import yaml
 from pydantic.v1.utils import deep_update
 
-from path_management import GamePaths
 from config_wrappers import TextProcessingConfig, FontSetConfig
+from path_management import GamePaths
 
 
 class ResourceManager:
@@ -12,7 +12,7 @@ class ResourceManager:
         self._given_game_directory = game_dir
         self.card_layouts
         self.update_configurations()
-        
+
     def update_configurations(self):
         self.game_paths = GamePaths(self._given_game_directory)
 
@@ -31,7 +31,7 @@ class ResourceManager:
 
         with open(self.game_paths.card_field_config, 'r') as file:
             self.card_ui_fields = yaml.safe_load(file)
-        
+
         with open(self.game_paths.font_configs, 'r') as file:
             font_configs: dict = yaml.safe_load(file)
             self.font_sets = {
@@ -39,13 +39,9 @@ class ResourceManager:
                 for font_name, font_paths in font_configs['Fonts'].items()
             }
             self.default_font = self.font_sets.get(
-                font_configs['Default'], # Attempt to get the default font, but if its not valid for some reason
-                self.font_sets[self.font_sets.keys()[0]] # Get the first listed font
+                font_configs['Default'],  # Attempt to get the default font, but if its not valid for some reason
+                self.font_sets[self.font_sets.keys()[0]]  # Get the first listed font
             )
-        
-
-
-
 
 
 if __name__ == "__main__":

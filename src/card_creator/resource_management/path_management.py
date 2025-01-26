@@ -1,5 +1,7 @@
-import yaml
 from pathlib import Path
+
+import yaml
+
 from path_utils import make_absolute_path
 
 
@@ -11,7 +13,7 @@ class GamePaths:
 
         with open(self.game_info_config, 'r') as file:
             game_info = yaml.safe_load(file)
-        
+
         self.card_field_config = make_absolute_path(
             game_info['Paths']['CardFieldConfig'],
             relative_base=self.game_folder
@@ -40,6 +42,3 @@ class GamePaths:
             game_info['Paths']['SymbolsDirectory'],
             relative_base=self.game_folder
         )
-
-
-

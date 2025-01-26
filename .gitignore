@@ -9,3 +9,6 @@
 
 # idea ide files
 /.idea/
+
+# python cache files
+__pycache__

@@ -1,8 +1,7 @@
-from typing import Dict
 from pathlib import Path
+from typing import Dict
 
 from path_utils import make_absolute_path
-
 
 
 class TextProcessingConfig:
@@ -27,6 +26,7 @@ class TextProcessingConfig:
         self.font_color_flag_component = config['FontModFlags']['SetFontColor']
 
         self.text_replacements = config['TextReplacements']
+
 
 class FontSetConfig:
     def __init__(self, font_name, font_paths, font_folder_path: Path):
